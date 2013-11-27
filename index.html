@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="Price tracking app to remember where you found the lowest price">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/vendor/require.js"></script>
+  <script>
+    require.config({
+      baseUrl: 'js',
+      paths: {
+        'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
+        'parse': 'http://www.parsecdn.com/js/parse-1.2.13.min',
+        'underscore': 'vendor/underscore'
+      },
+      shim: {
+        'jquery': {
+          exports: '$'
+        },
+        'parse': {
+          exports: 'Parse',
+          deps: ["jquery"]
+        },
+        'underscore': {
+          exports: '_'
+        }
+      }
+    });
+  </script>
+</head>
+
+<body>
+  
+  <div class="content"></div>
+
+  <script type="text/template" id="search-template">
+  <input type="search" id="search-box" />
+  <ul id="search-results"></ul>
+  </script>
+
+  <script type="text/template" id="search-result-template">
+  <%= name %>
+  </script>
+
+  <script type="text/template" id="prices-template">
+  <h3><%= name %></h3>
+  <button>Add new price</button>
+  <ul id="prices-results"></ul>
+  </script>
+
+  <script type="text/template" id="prices-result-template">
+  Price: <%= price %> <br />
+  Location: <%= location %>
+  </script>
+
+  <script type="text/template" id="add-price-template">
+  <h3><%= name %></h3>
+  Price: <input type="text" id="price-input" /> <br />
+  Location: <input type="text" id="location-input" /> <br />
+  <button>Save</button>
+  </script>
+
+  <script type="text/javascript">
+    require(["app"]);
+  </script>
+</body>
+
+</html>
