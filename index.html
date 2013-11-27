@@ -4,7 +4,7 @@
 
   <title>My Parse App</title>
   <meta name="description" content="Price tracking app to remember where you found the lowest price">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -52,7 +52,7 @@
   <h3><%= name %></h3>
   <div class="form-group">
     <label for="price-input">Price</label>
-    <input type="text" id="price-input" name="price-input" class="form-control" />
+    <input type="text" id="price-input" pattern="[0-9]*" name="price-input" class="form-control" value="0.00" />
   </div>
 
   <div class="form-group">
