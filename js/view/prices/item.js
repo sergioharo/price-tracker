@@ -2,9 +2,7 @@ define(["parse", "underscore"], function (Parse, _) {
 	return Parse.View.extend({
 		template: _.template($("#prices-result-template").html()),
 
-		tagName: "li",
-
-		className: "price-result",
+		tagName: "tr",
 
 		events: {
 

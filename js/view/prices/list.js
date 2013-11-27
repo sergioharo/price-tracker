@@ -30,7 +30,7 @@ define(["parse", "underscore", "view/prices/item", "model/price"], function (Par
 		},
 
 		addPrices: function (results) {
-			this.$("#prices-results").empty();
+			this.$("#prices-results > tbody").empty();
 			this.collection.each(this.addPrice);
 		},
 
