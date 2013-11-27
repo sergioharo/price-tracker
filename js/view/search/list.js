@@ -6,7 +6,7 @@ define(["parse", "underscore", "view/search/item", "model/item"], function (Pars
 
 		events: {
 			"keyup #search-box": "onSearchInput",
-			"click .search-result": "onSearchResultClick"
+			"click .result": "onSearchResultClick"
 		},
 
 		initialize: function () {
