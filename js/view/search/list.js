@@ -61,7 +61,7 @@ define(["parse", "underscore", "view/search/item", "model/item"], function (Pars
 		},
 
 		onNewItem: function(item) {
-			self.navigateToItem(item);
+			this.navigateToItem(item);
 		},
 
 		onSearchInput: function (evt) {
@@ -72,7 +72,6 @@ define(["parse", "underscore", "view/search/item", "model/item"], function (Pars
 			var target = evt.currentTarget;
 			var model = $(target).data("model");
 			if (model == this.addNewSearchResult) {
-				var self = this;
 				this.createNewItem(this.onNewItem);
 			} 
 			else {
