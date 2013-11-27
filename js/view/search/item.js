@@ -4,7 +4,7 @@ define(["parse", "underscore"], function (Parse, _) {
 
 		tagName: "li",
 
-		className: "search-result",
+		className: "result",
 
 		events: {
 
