@@ -1,0 +1,92 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="Price tracking app to remember where you found the lowest price">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Price Tracker</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content container"></div>
+
+  <script type="text/template" id="search-template">
+    <input type="search" id="search-box" class="form-control" placeholder="Search for or enter a product" />
+    <ul id="search-results" class="list-unstyled"></ul>
+  </script>
+
+  <script type="text/template" id="search-result-template">
+    <%= name %>
+  </script>
+
+  <script type="text/template" id="prices-template">
+    <h3><%= name %></h3>
+    <table id="prices-results" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button type="button" class="btn btn-primary btn-block">Add new price</button>
+  </script>
+
+  <script type="text/template" id="prices-result-template">
+    <td><%= price %></td>
+    <td><%= location %></td>
+  </script>
+
+  <script type="text/template" id="add-price-template">
+  <h3><%= name %></h3>
+  <div class="form-group">
+    <label for="price-input">Price</label>
+    <input type="text" id="price-input" pattern="[0-9]*" name="price-input" class="form-control" value="0.00" />
+  </div>
+
+  <div class="form-group">
+    <label for="location-input">Location</label>
+    <input type="text" id="location-input" name="location-input" class="form-control" />
+  </div>
+
+  <button type="button" class="btn btn-success btn-block">Save</button>
+  </script>
+
+  <script type="text/javascript" src="js/vendor/require.js"></script>
+  <script>
+    require.config({
+      baseUrl: 'js',
+      paths: {
+        'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
+        'parse': 'http://www.parsecdn.com/js/parse-1.2.13.min',
+        'underscore': 'vendor/underscore'
+      },
+      shim: {
+        'jquery': {
+          exports: '$'
+        },
+        'parse': {
+          exports: 'Parse',
+          deps: ["jquery"]
+        },
+        'underscore': {
+          exports: '_'
+        }
+      }
+    });
+
+    require(["app"]);
+  </script>
+</body>
+</html>

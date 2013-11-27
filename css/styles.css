@@ -1,0 +1,11 @@
+body {
+  padding-top: 64px;
+}
+
+.result {
+	padding: 1em;
+}
+
+.result:nth-child(even) {
+	background: #f6f6f6;
+}
