@@ -5,8 +5,56 @@
   <title>My Parse App</title>
   <meta name="description" content="Price tracking app to remember where you found the lowest price">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Price Tracker</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content container"></div>
+
+  <script type="text/template" id="search-template">
+    <input type="search" id="search-box" class="form-control" placeholder="Search for or enter a product" />
+    <ul id="search-results" class="list-unstyled"></ul>
+  </script>
+
+  <script type="text/template" id="search-result-template">
+    <%= name %>
+  </script>
+
+  <script type="text/template" id="prices-template">
+    <h3><%= name %></h3>
+    <table id="prices-results" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button type="button" class="btn btn-primary btn-block">Add new price</button>
+  </script>
+
+  <script type="text/template" id="prices-result-template">
+    <td><%= price %></td>
+    <td><%= location %></td>
+  </script>
+
+  <script type="text/template" id="add-price-template">
+  <h3><%= name %></h3>
+  Price: <input type="text" id="price-input" /> <br />
+  Location: <input type="text" id="location-input" /> <br />
+  <button>Save</button>
+  </script>
+
   <script type="text/javascript" src="js/vendor/require.js"></script>
   <script>
     require.config({
@@ -29,43 +77,8 @@
         }
       }
     });
-  </script>
-</head>
 
-<body>
-  
-  <div class="content"></div>
-
-  <script type="text/template" id="search-template">
-  <input type="search" id="search-box" />
-  <ul id="search-results"></ul>
-  </script>
-
-  <script type="text/template" id="search-result-template">
-  <%= name %>
-  </script>
-
-  <script type="text/template" id="prices-template">
-  <h3><%= name %></h3>
-  <button>Add new price</button>
-  <ul id="prices-results"></ul>
-  </script>
-
-  <script type="text/template" id="prices-result-template">
-  Price: <%= price %> <br />
-  Location: <%= location %>
-  </script>
-
-  <script type="text/template" id="add-price-template">
-  <h3><%= name %></h3>
-  Price: <input type="text" id="price-input" /> <br />
-  Location: <input type="text" id="location-input" /> <br />
-  <button>Save</button>
-  </script>
-
-  <script type="text/javascript">
     require(["app"]);
   </script>
 </body>
-
 </html>
